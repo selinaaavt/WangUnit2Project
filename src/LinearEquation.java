@@ -18,4 +18,37 @@ public class LinearEquation {
     public String coordinateForX() {
         return "hai";
     }
+
+    public double distance() {
+        double subtractX = x1 - x2;
+        double subtractY =  y1 - y2;
+        double stuffX = Math.pow(subtractX, 2);
+        double stuffY = Math.pow(subtractY, 2);
+        double done = Math.sqrt((stuffY+stuffY));
+        double rounded = Math.round(done * 100) / 100.0;
+        return rounded;
+    }
+    public double yIntercept() {
+        double yIntercept = y1 - slope() * x1;
+        return yIntercept;
+    }
+
+    public double slope(){
+        double subtractX = x1 - x2;
+        double subtractY =  y1 - y2;
+        double real = (subtractY/subtractX);
+        return real;
+    }
+
+    public String equation() {
+        double subtractX = x1 - x2;
+        double subtractY = y1 - y2;
+        if (subtractX == 0) {
+            return "y =" + y1;
+        } else {
+            String smth = subtractY + "/" + subtractX;
+            return "y = " + smth + "x + " + yIntercept();
+
+        }
+    }
 }
