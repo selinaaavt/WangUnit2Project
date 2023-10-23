@@ -15,6 +15,7 @@ public class LinearEquationLogic {
     public void start(){
         getInfo();
         printInfo();
+        askMore();
     }
 
     public void getInfo(){
@@ -44,12 +45,13 @@ public class LinearEquationLogic {
 
     public void askMore() {
         System.out.print("Enter a value for x: ");
-        String xAgain = scan.nextLine();
-        System.out.println("The point on the line is " + poop.coordinateForX());
+        int xAgain = scan.nextInt();
+        System.out.println("The point on the line is " + poop.coordinateForX(xAgain));
         System.out.print("Would you like to enter another pair of coordinates? y/n: ");
+        scan.nextLine();
         String answer = scan.nextLine();
         if (answer.equals("y")) {
-            start();
+            askMore();
         }
     }
 
