@@ -12,7 +12,11 @@ public class LinearEquation {
     }
 
     public String lineInfo() {
-        return "The two points are (" + x1 + ", " + y1 + ")" + " and (" + x2 + ", " + y2 + ")" + "\n The equation of the line between these points is: " + equation() + "\nThe slope of this line is: " + slope() + "\nThe y-intercept of this line is: " + yIntercept() + "\nThe distance between these points is " + distance();
+        if (x1 != x2) {
+            return "The two points are (" + x1 + ", " + y1 + ")" + " and (" + x2 + ", " + y2 + ")" + "\nThe equation of the line between these points is: " + equation() + "\nThe slope of this line is: " + slope() + "\nThe y-intercept of this line is: " + yIntercept() + "\nThe distance between these points is " + distance();
+        } else {
+            return "\nThe equation of the line between these points is: " + equation();
+        }
     }
 
 
@@ -41,19 +45,93 @@ public class LinearEquation {
     public String equation() {
         int subtractX = (int) x2 - x1;
         int subtractY = (int) y2 - y1;
-        if (subtractX == 0) {
-            return "y =" + y1;
+        if (yIntercept() == 0) {
+            if (slope() == 0 ) {
+                return "y = 0";
+            }
+            if (subtractY ==0) {
+                return "y = " + y1;
+            } else {
+                if (subtractX == 0) {
+                    return "y = _";
+                }
+                if ((subtractX < 0) && (subtractY < 0)) {
+                    subtractX *= -1;
+                    subtractY *= -1;
+                }
+                if ((subtractX < 0) && (subtractY > 0)) {
+                    subtractX *= -1;
+                    subtractY *= -1;
+                }
+                if (subtractY%subtractX == 0) {
+                    int x = subtractY/subtractX;
+                    if (x == 1) {
+                        if (yIntercept() > 0) {
+                            return "y = x " ;
+                        } else {
+                            return "y = x " ;
+                        }
+                    }
+                    if (x == -1) {
+                        if (yIntercept() > 0) {
+                            return "y = -x" ;
+                        } else {
+                            return "y = -x " ;
+                        }
+                    } if (yIntercept() > 0) {
+                        return "y = " + x + "x " ;
+                    } else {
+                        return "y = " + x + "x" ;
+                    }
+                }
+                String smth = subtractY + "/" + subtractX;
+                if (yIntercept() < 0) {
+                    return "y = " + smth + "x " ;
+                }
+                return "y = " + smth + "x" ;
+
+            }
+        }
+        if (subtractY ==0) {
+            return "y = " + y1;
         } else {
+            if (subtractX == 0) {
+                return "y = _";
+            }
             if ((subtractX < 0) && (subtractY < 0)) {
                 subtractX *= -1;
                 subtractY *= -1;
+            }
+            if ((subtractX < 0) && (subtractY > 0)) {
+                subtractX *= -1;
+                subtractY *= -1;
+            }
+            if (subtractY%subtractX == 0) {
+                int x = subtractY/subtractX;
+                if (x == 1) {
+                    if (yIntercept() > 0) {
+                        return "y = x + " + yIntercept();
+                    } else {
+                        return "y = x " + yIntercept();
+                    }
+                }
+                if (x == -1) {
+                    if (yIntercept() > 0) {
+                        return "y = -x + " + yIntercept();
+                    } else {
+                        return "y = -x " + yIntercept();
+                    }
+                } if (yIntercept() > 0) {
+                    return "y = " + x + "x + " + yIntercept();
+                } else {
+                    return "y = " + x + "x" + yIntercept();
+                }
             }
             String smth = subtractY + "/" + subtractX;
             if (yIntercept() < 0) {
                 return "y = " + smth + "x " + yIntercept();
             }
             return "y = " + smth + "x + " + yIntercept();
-
         }
     }
 

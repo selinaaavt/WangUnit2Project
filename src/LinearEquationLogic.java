@@ -44,16 +44,17 @@ public class LinearEquationLogic {
     }
 
     public void askMore() {
-        System.out.print("Enter a value for x: ");
-        int xAgain = scan.nextInt();
-        System.out.println("The point on the line is " + poop.coordinateForX(xAgain));
-        System.out.print("Would you like to enter another pair of coordinates? y/n: ");
-        scan.nextLine();
-        String answer = scan.nextLine();
-        if (answer.equals("y")) {
-            askMore();
+        if (xValueOfC1 != xValueOfC2) {
+            System.out.print("Enter a value for x: ");
+            double xAgain = scan.nextDouble();
+            System.out.println("The point on the line is " + poop.coordinateForX(xAgain));
+            System.out.print("Would you like to enter another pair of coordinates? y/n: ");
+            scan.nextLine();
+            String answer = scan.nextLine();
+            if (answer.equals("y")) {
+                start();
+            }
         }
     }
-
 
 }
