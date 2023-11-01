@@ -18,7 +18,7 @@ public class LinearEquationLogic {
         askMore();
     }
 
-    public void getInfo(){
+    private void getInfo(){
         System.out.println("Welcome to linear equation calculator");
         System.out.print("Enter coordinate 1: ");
         String coordinate1 = scan.nextLine();
@@ -38,12 +38,12 @@ public class LinearEquationLogic {
         yValueOfC2 = Integer.parseInt(yvalueOfCoordinate2);
     }
 
-    public void printInfo() {
+    private void printInfo() {
         poop = new LinearEquation(xValueOfC1, yValueOfC1, xValueOfC2, yValueOfC2);
         System.out.println(poop.lineInfo());
     }
 
-    public void askMore() {
+    private void askMore() {
         if (xValueOfC1 != xValueOfC2) {
             System.out.print("Enter a value for x: ");
             double xAgain = scan.nextDouble();
